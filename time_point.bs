@@ -1,6 +1,6 @@
 <pre class='metadata'>
 Group: WG21
-Title: time_point from unknown clock
+Title: Relax Requirements for time_point::clock
 Status: D
 Shortname: Dxxxx
 Revision: 0
