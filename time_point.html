@@ -1297,7 +1297,7 @@ Possible extra rowspan handling
   <meta content="Bikeshed version 7c63c139, updated Fri Jul 17 17:12:19 2020 -0700" name="generator">
   <link href="https://wg21.link/P2212" rel="canonical">
   <link href="https://isocpp.org/favicon.ico" rel="icon">
-  <meta content="d2a3ba2f712857bebc1167d084e9fd9306e39f99" name="document-revision">
+  <meta content="1b16d83bc880952250170a6e27cbaab428404009" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -1507,7 +1507,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">P2212R0<br>Relax Requirements for time_point::clock</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Published Proposal, <time class="dt-updated" datetime="2020-08-10">2020-08-10</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Published Proposal, <time class="dt-updated" datetime="2020-08-11">2020-08-11</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1580,7 +1580,7 @@ You can’t easily generate the current value, but you can still meaningfully ma
    <p>This change should not affect any conforming code because the requirement is only relaxed.</p>
    <h2 class="heading settled" data-level="6" id="implementation"><span class="secno">6. </span><span class="content">Effect on implementations</span><a class="self-link" href="#implementation"></a></h2>
    <p>This change should not have an effect on most of implementations because in practice they do not use any of the members of <code class="highlight"><c- n>Clock</c-></code> outside of <strong>[thread]</strong>. <strong>[thread.req.paramname]</strong> places additional requirements on the <code class="highlight"><c- n>Clock</c-></code> template parameter, namely that <code class="highlight"><c- n>is_clock_v</c-><c- o>&lt;</c-><c- n>Clock</c-><c- o>></c-></code> is <code class="highlight">true</code>.
-This change is effectively already proven to be safe because of the existence of <code class="highlight"><c- n>std</c-><c- o>::</c-><c- n>time_point</c-><c- o>&lt;</c-><c- n>std</c-><c- o>::</c-><c- n>chrono</c-><c- o>::</c-><c- n>local_t</c-><c- p>,</c-> <c- n>Duration</c-><c- o>></c-></code>, where <code class="highlight"><c- n>std</c-><c- o>::</c-><c- n>chrono</c-><c- o>::</c-><c- n>local_t</c-></code> is an empty class.</p>
+This change is effectively already proven to be safe because of the existence of <code class="highlight"><c- n>std</c-><c- o>::</c-><c- n>chrono</c-><c- o>::</c-><c- n>time_point</c-><c- o>&lt;</c-><c- n>std</c-><c- o>::</c-><c- n>chrono</c-><c- o>::</c-><c- n>local_t</c-><c- p>,</c-> <c- n>Duration</c-><c- o>></c-></code>, where <code class="highlight"><c- n>std</c-><c- o>::</c-><c- n>chrono</c-><c- o>::</c-><c- n>local_t</c-></code> is an empty class.</p>
    <h2 class="heading settled" data-level="7" id="acknowledgement"><span class="secno">7. </span><span class="content">Acknowledgement</span><a class="self-link" href="#acknowledgement"></a></h2>
     Thanks to all those who provided the motivating use cases for this change. 
   </main>

@@ -57,7 +57,7 @@ This change should not affect any conforming code because the requirement is onl
 
 This change should not have an effect on most of implementations because in practice they do not use any of the members of `Clock` outside of **[thread]**.
 **[thread.req.paramname]** places additional requirements on the `Clock` template parameter, namely that `is_clock_v<Clock>` is `true`.
-This change is effectively already proven to be safe because of the existence of `std::time_point<std::chrono::local_t, Duration>`, where `std::chrono::local_t` is an empty class.
+This change is effectively already proven to be safe because of the existence of `std::chrono::time_point<std::chrono::local_t, Duration>`, where `std::chrono::local_t` is an empty class.
 
 # Acknowledgement # {#acknowledgement}
 Thanks to all those who provided the motivating use cases for this change.
