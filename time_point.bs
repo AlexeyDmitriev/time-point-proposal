@@ -1,13 +1,13 @@
 <pre class='metadata'>
 Group: WG21
 Title: Relax Requirements for time_point::clock
-Status: P
+Status: D
 Shortname: P2212
-Revision: 0
+Revision: 1
 Editor: Alexey Dmitriev, cpplang@admitriev.name
 Editor: Howard Hinnant, howard.hinnant@gmail.com
 TR: https://wg21.link/P2212
-URL: https://wg21.link/P2212R0
+URL: https://wg21.link/P2212R1
 No Abstract: yes
 Markup shorthands: markdown yes
 </pre>
@@ -17,6 +17,8 @@ Markup shorthands: markdown yes
 We propose to relax the requirements on the `Clock` template parameter of `std::chrono::time_point`.
 
 # Revision History # {#changelog}
+## Revision 1 ## {#r1}
+Alter proposed wording per Jonathan Wakely's suggestion.
 ## Revision 0 ## {#r0}
 Initial revision.
 
@@ -45,9 +47,9 @@ Since the introduction of `local_t`, more use cases for "not-quite-clocks" have 
 
 # Wording # {#wording}
 
-Change the clause 1 in [**time.point**]:
+Remove paragraph 1 in [**time.point**]:
 
-Clock shall <del>either meet the *Cpp17Clock* requirements ([**time.clock.req**]) or be the type `local_t`</del><ins>have the nested type `duration` if the instantiation defaults the template parameter `Duration`.</ins>
+<del>Clock shall either meet the *Cpp17Clock* requirements ([**time.clock.req**]) or be the type `local_t`.</del>
 
 # Effect on existing code # {#existing-code}
 
