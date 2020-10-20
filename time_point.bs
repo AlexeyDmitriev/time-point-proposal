@@ -7,7 +7,7 @@ Revision: 2
 Editor: Alexey Dmitriev, cpplang@admitriev.name
 Editor: Howard Hinnant, howard.hinnant@gmail.com
 TR: https://wg21.link/P2212
-URL: https://wg21.link/P2212R1
+URL: https://wg21.link/P2212R2
 No Abstract: yes
 Markup shorthands: markdown yes
 </pre>
