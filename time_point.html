@@ -2,7 +2,7 @@
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-  <title>P2212R1: Relax Requirements for time_point::clock</title>
+  <title>P2212R2: Relax Requirements for time_point::clock</title>
 <style data-fill-with="stylesheet">/******************************************************************************
  *                   Style sheet for the W3C specifications                   *
  *
@@ -1297,7 +1297,7 @@ Possible extra rowspan handling
   <meta content="Bikeshed version 7c63c139, updated Fri Jul 17 17:12:19 2020 -0700" name="generator">
   <link href="https://wg21.link/P2212" rel="canonical">
   <link href="https://isocpp.org/favicon.ico" rel="icon">
-  <meta content="cfaaf09a5703eadd85d84e3eaf3a8da887e43da6" name="document-revision">
+  <meta content="288c2e013e322221f27f4f484a3bb565df770921" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -1506,12 +1506,12 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"></p>
-   <h1 class="p-name no-ref" id="title">P2212R1<br>Relax Requirements for time_point::clock</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Published Proposal, <time class="dt-updated" datetime="2020-09-12">2020-09-12</time></span></h2>
+   <h1 class="p-name no-ref" id="title">P2212R2<br>Relax Requirements for time_point::clock</h1>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Published Proposal, <time class="dt-updated" datetime="2020-10-22">2020-10-22</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
-     <dd><a class="u-url" href="https://wg21.link/P2212R1">https://wg21.link/P2212R1</a>
+     <dd><a class="u-url" href="https://wg21.link/P2212R2">https://wg21.link/P2212R2</a>
      <dt>Latest published version:
      <dd><a href="https://wg21.link/P2212">https://wg21.link/P2212</a>
      <dt>Authors:
@@ -1533,8 +1533,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     <li>
      <a href="#changelog"><span class="secno">2</span> <span class="content">Revision History</span></a>
      <ol class="toc">
-      <li><a href="#r1"><span class="secno">2.1</span> <span class="content">Revision 1</span></a>
-      <li><a href="#r0"><span class="secno">2.2</span> <span class="content">Revision 0</span></a>
+      <li><a href="#r2"><span class="secno">2.1</span> <span class="content">Revision 2</span></a>
+      <li><a href="#r1"><span class="secno">2.2</span> <span class="content">Revision 1</span></a>
+      <li><a href="#r0"><span class="secno">2.3</span> <span class="content">Revision 0</span></a>
      </ol>
     <li><a href="#motivation"><span class="secno">3</span> <span class="content">Motivation</span></a>
     <li><a href="#wording"><span class="secno">4</span> <span class="content">Wording</span></a>
@@ -1547,9 +1548,12 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <h2 class="heading settled" data-level="1" id="abstract"><span class="secno">1. </span><span class="content">Abstract</span><a class="self-link" href="#abstract"></a></h2>
    <p>We propose to relax the requirements on the <code class="highlight"><c- n>Clock</c-></code> template parameter of <code class="highlight"><c- n>std</c-><c- o>::</c-><c- n>chrono</c-><c- o>::</c-><c- n>time_point</c-></code>.</p>
    <h2 class="heading settled" data-level="2" id="changelog"><span class="secno">2. </span><span class="content">Revision History</span><a class="self-link" href="#changelog"></a></h2>
-   <h3 class="heading settled" data-level="2.1" id="r1"><span class="secno">2.1. </span><span class="content">Revision 1</span><a class="self-link" href="#r1"></a></h3>
+   <h3 class="heading settled" data-level="2.1" id="r2"><span class="secno">2.1. </span><span class="content">Revision 2</span><a class="self-link" href="#r2"></a></h3>
+    Add proposed wording for [<strong>thread.req.paramname</strong>] per Tim Song’s suggestion. 
+   <p>Rebase proposed wording to the current working draft.</p>
+   <h3 class="heading settled" data-level="2.2" id="r1"><span class="secno">2.2. </span><span class="content">Revision 1</span><a class="self-link" href="#r1"></a></h3>
     Alter proposed wording per Jonathan Wakely’s suggestion. 
-   <h3 class="heading settled" data-level="2.2" id="r0"><span class="secno">2.2. </span><span class="content">Revision 0</span><a class="self-link" href="#r0"></a></h3>
+   <h3 class="heading settled" data-level="2.3" id="r0"><span class="secno">2.3. </span><span class="content">Revision 0</span><a class="self-link" href="#r0"></a></h3>
     Initial revision. 
    <h2 class="heading settled" data-level="3" id="motivation"><span class="secno">3. </span><span class="content">Motivation</span><a class="self-link" href="#motivation"></a></h2>
    <p>It is sometimes useful to give <code class="highlight"><c- n>time_point</c-></code> a <code class="highlight"><c- n>Clock</c-></code> template
@@ -1573,8 +1577,18 @@ not controlled by you, where you can’t generate the current time_point easily 
 You can’t easily generate the current value, but you can still meaningfully manipulate existing values generated by other means: compare them, calculate differences between them, etc.</p>
    </ul>
    <h2 class="heading settled" data-level="4" id="wording"><span class="secno">4. </span><span class="content">Wording</span><a class="self-link" href="#wording"></a></h2>
-   <p>Remove paragraph 1 in [<strong>time.point</strong>]:</p>
+   <p>Remove paragraph 1 in [<strong>time.point.general</strong>]:</p>
    <del>Clock shall either meet the <em>Cpp17Clock</em> requirements ([<strong>time.clock.req</strong>]) or be the type <code class="highlight"><c- n>local_t</c-></code>.</del>
+   <p>Edit the last sentence of paragraph 1 in [<strong>thread.req.paramname</strong>] as indicated:</p>
+   <p>
+    If a template parameter is named <code class="highlight"><c- n>Clock</c-></code>, the corresponding template
+argument shall be a type <code class="highlight"><c- n>C</c-></code> 
+    <ins>that meets the <em>Cpp17Clock</em> requirements
+([<strong>time.clock.req</strong>]); the program is ill-formed if <code class="highlight"><c- n>is_clock_v</c-><c- o>&lt;</c-><c- n>C</c-><c- o>></c-></code> is
+false.</ins>
+    <del>for which <code class="highlight"><c- n>is_clock_v</c-><c- o>&lt;</c-><c- n>C</c-><c- o>></c-></code> is <code class="highlight">true</code>; otherwise the
+program is ill-formed.</del>
+   </p>
    <h2 class="heading settled" data-level="5" id="existing-code"><span class="secno">5. </span><span class="content">Effect on existing code</span><a class="self-link" href="#existing-code"></a></h2>
    <p>This change should not affect any conforming code because the requirement is only relaxed.</p>
    <h2 class="heading settled" data-level="6" id="implementation"><span class="secno">6. </span><span class="content">Effect on implementations</span><a class="self-link" href="#implementation"></a></h2>

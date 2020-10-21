@@ -3,11 +3,11 @@ Group: WG21
 Title: Relax Requirements for time_point::clock
 Status: P
 Shortname: P2212
-Revision: 1
+Revision: 2
 Editor: Alexey Dmitriev, cpplang@admitriev.name
 Editor: Howard Hinnant, howard.hinnant@gmail.com
 TR: https://wg21.link/P2212
-URL: https://wg21.link/P2212R1
+URL: https://wg21.link/P2212R2
 No Abstract: yes
 Markup shorthands: markdown yes
 </pre>
@@ -17,6 +17,10 @@ Markup shorthands: markdown yes
 We propose to relax the requirements on the `Clock` template parameter of `std::chrono::time_point`.
 
 # Revision History # {#changelog}
+## Revision 2 ## {#r2}
+Add proposed wording for [**thread.req.paramname**] per Tim Song's suggestion.
+
+Rebase proposed wording to the current working draft.
 ## Revision 1 ## {#r1}
 Alter proposed wording per Jonathan Wakely's suggestion.
 ## Revision 0 ## {#r0}
@@ -47,9 +51,17 @@ Since the introduction of `local_t`, more use cases for "not-quite-clocks" have 
 
 # Wording # {#wording}
 
-Remove paragraph 1 in [**time.point**]:
+Remove paragraph 1 in [**time.point.general**]:
 
 <del>Clock shall either meet the *Cpp17Clock* requirements ([**time.clock.req**]) or be the type `local_t`.</del>
+
+Edit the last sentence of paragraph 1 in [**thread.req.paramname**] as indicated:
+
+If a template parameter is named `Clock`, the corresponding template
+argument shall be a type `C` <ins>that meets the *Cpp17Clock* requirements
+([**time.clock.req**]); the program is ill-formed if `is_clock_v<C>` is
+false.</ins><del>for which `is_clock_v<C>` is `true`; otherwise the
+program is ill-formed.</del>
 
 # Effect on existing code # {#existing-code}
 
